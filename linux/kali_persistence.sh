@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+# https://git.io/kalipersist
 # https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
