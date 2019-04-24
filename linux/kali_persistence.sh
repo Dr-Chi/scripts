@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# https://github.com/
+# https://github.com/Dr-Chi/scripts/tree/master/linux
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
 
