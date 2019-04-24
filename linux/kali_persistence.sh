@@ -15,12 +15,12 @@ if [[ "$EUID" -ne 0 ]]; then
 	exit
 fi
 
-echo -e "\033[0;33m******************************************************************"
-echo -e "\033[0;30mWARNING: This will mess with partitions!  You could LOSE data!"
-echo -e "\033[0;33mPlease read everything carefully and only proceed if you know"
-echo -e "\033[0;33mwhat you're doing"
-echo -e "\033[0;33m******************************************************************"
-
+echo -e "\033[0;31m******************************************************************"
+echo -e "\033[0;31mWARNING: This will mess with partitions!  You could LOSE data!"
+echo -e "\033[0;31mPlease read everything carefully and only proceed if you know"
+echo -e "\033[0;31mwhat you're doing"
+echo -e "\033[0;31m******************************************************************"
+echo -e "\033[1;33m "
 
 read -n 1 -s -r -p "Press any key to continue"
 
