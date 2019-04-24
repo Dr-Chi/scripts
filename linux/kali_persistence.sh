@@ -3,7 +3,7 @@
 # https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
-
+set -x #echo on
 
 # Detect users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
