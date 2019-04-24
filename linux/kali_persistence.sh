@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-# https://git.io/kalipersist
 # https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
@@ -61,10 +60,13 @@ echo -e "\033[0;33mCreating a persistence.conf file"
 set -x #echo on
 mkdir -p /mnt/storage
 mount $PAR /mnt/storage
-echo -e "\033[0;33m/ union" > /mnt/storage/persistence.conf
+echo "/ union" > /mnt/storage/persistence.conf
 umount $PAR
 set +x #echo off
-echo \n
-echo \n
-echo \n
+echo
+echo
+echo
 echo -e "\033[0;33mDONE!"
+echo
+echo
+echo
