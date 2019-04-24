@@ -26,10 +26,10 @@ read -p "USB path: " -e -i /dev/sdb USB
 # The fdisk options are; n for new part, enter 4 times, w to write the changes
 fdisk $USB <<EOI
 n
-\n
-\n
-\n
-\n
+
+
+
+
 w
 EOI
 
