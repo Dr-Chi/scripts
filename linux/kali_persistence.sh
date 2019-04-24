@@ -22,12 +22,14 @@ fdisk -l
 # is the usb disk /dev/sdb ?
 echo "What is the path to your USB device? Remember: sda is usually the internal HD!"
 read -p "USB path: " -e -i /dev/sdb USB
+
+# The fdisk options are; n for new part, enter 4 times, w to write the changes
 fdisk $USB <<EOI
-# n :for new partition
 n
-# enter 4 times
-echo -en "\n\n\n\n"
-# w :to write the changes
+\n
+\n
+\n
+\n
 w
 EOI
 
