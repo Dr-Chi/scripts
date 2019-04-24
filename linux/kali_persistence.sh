@@ -1,8 +1,12 @@
 #!/bin/bash
 #
+# https://git.io/kalipersist
 # https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
+#
+# One-liner to call this script:
+# wget http://git.io/kalipersist -O kali_persistence.sh && bash kali_persistence.sh
 
 # Detect users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
