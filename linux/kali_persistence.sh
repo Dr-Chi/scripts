@@ -5,7 +5,7 @@
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
 #
-# One-liner to call this script:
+# One-liner to call this script from kali-live:
 # wget http://git.io/kalipersist -O kali_persistence.sh && bash kali_persistence.sh
 
 # Detect users running the script with "sh" instead of bash
