@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# https://github.com/Dr-Chi/scripts/tree/master/linux
+# https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
 
@@ -22,13 +22,14 @@ fdisk -l
 # is the usb disk /dev/sdb ?
 echo "What is the path to your USB device? Remember: sda is usually the internal HD!"
 read -p "USB path: " -e -i /dev/sdb USB
-fdisk $USB
+fdisk $USB <<EOI
 # n :for new partition
 n
 # enter 4 times
 echo -en "\n\n\n\n"
 # w :to write the changes
 w
+EOI
 
 fdisk -l    #is it created?  Is is /dev/sdb3?
 echo "Is the new partition /dev/sdb3?"
