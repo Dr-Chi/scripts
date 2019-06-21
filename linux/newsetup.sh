@@ -5,7 +5,7 @@
 # Copyright (c) 2019 DrChi. Released under the MIT License.
 #
 # One-liner to call this script from terminal:
-# wget https://github.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh
+# wget https://raw.githubusercontent.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh
 
 # Add to ~/.bash_aliases
 cat <<EOT >> ~/.bash_aliases
