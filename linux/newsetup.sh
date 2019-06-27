@@ -14,4 +14,6 @@
 #alias editmobsf='sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'
 #alias screenscale='xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'
 #EOT
+grep -q 'alias screenscale' ~/.bash_aliases || echo alias screenscale=\'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0\' >> ~/.bash_aliases
 grep -q 'alias runmobsf' ~/.bash_aliases || echo alias runmobsf=\'sudo docker run -it -p 8000:8000 -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest\' >> ~/.bash_aliases
+grep -q 'alias editmobsf' ~/.bash_aliases || alias editmobsf=\'sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest\' >> ~/.bash_aliases
