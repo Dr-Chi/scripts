@@ -16,11 +16,13 @@
 		"alias screenscale"
 		"alias runmobsf"
 		"alias editmobsf"
+		"alias mount"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
 		'alias runmobsf='"'"'sudo docker run -it -p 8000:8000 -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'"'"''
 		'alias editmobsf='"'"'sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'"'"''
+		'alias mount='"'"'mount |column -t'"'"''
 	)
 
 	#for ((i=0;i<${#toGrep[@]};i++))  #this works but I prefer "for i in"
