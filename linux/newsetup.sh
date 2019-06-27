@@ -1,4 +1,4 @@
-#!/bin/bash
+tst#!/bin/bash
 #
 # https://github.com/Dr-Chi/scripts/master/linux/newsetup.sh
 #
