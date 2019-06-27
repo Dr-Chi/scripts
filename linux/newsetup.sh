@@ -8,12 +8,23 @@
 # wget https://raw.githubusercontent.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh
 
 # Add to ~/.bash_aliases
+	#Notes:
+	#Use the following to use a ' in arrays:
+	# '"'"'
 
-#cat <<EOT >> ~/.bash_aliases
-#alias runmobsf='sudo docker run -it -p 8000:8000 -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'
-#alias editmobsf='sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'
-#alias screenscale='xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'
-#EOT
-grep -q 'alias screenscale' ~/.bash_aliases || echo alias screenscale=\'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0\' >> ~/.bash_aliases
-grep -q 'alias runmobsf' ~/.bash_aliases || echo alias runmobsf=\'sudo docker run -it -p 8000:8000 -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest\' >> ~/.bash_aliases
-grep -q 'alias editmobsf' ~/.bash_aliases || echo alias editmobsf=\'sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest\' >> ~/.bash_aliases
+	toGrep=(
+		"alias screenscale"
+		"alias runmobsf"
+		"alias editmobsf"
+	)
+	aliases=(
+		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
+		'alias runmobsf='"'"'sudo docker run -it -p 8000:8000 -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'"'"''
+		'alias editmobsf='"'"'sudo docker run -it --entrypoint /bin/bash -v MobSFData:/root/.MobSF opensecurity/mobile-security-framework-mobsf:latest'"'"''
+	)
+
+	#for ((i=0;i<${#toGrep[@]};i++))  #this works but I prefer "for i in"
+	for i in $(echo ${!toGrep[@]});
+	do
+	    grep -q "${toGrep[$i]}" ~/.bash_aliases || echo ${aliases[$i]} >> ~/.bash_aliases;
+	done
