@@ -23,6 +23,10 @@
 		"alias cp"
 		"alias ln"
 		"alias reboot"
+		"alias meminfo"
+		"alias psmem10"
+		"alias wget"
+		"alias df"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -37,6 +41,10 @@
 		'alias cp='"'"'cp -i'"'"''
 		'alias ln='"'"'ln -i'"'"''
 		'alias reboot='"'"'shurdown -r now'"'"''
+		'alias meminfo='"'"'free -m -l -t'"'"''
+		'alias psmem10='"'"'ps auxf | sort -nr -k 4 | head -10'"'"''
+		'alias wget='"'"'wget -c'"'"''
+		'alias df='"'"'df -H'"'"''
 	)
 
 	#for ((i=0;i<${#toGrep[@]};i++))  #this works but I prefer "for i in"
