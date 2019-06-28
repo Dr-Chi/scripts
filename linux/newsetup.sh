@@ -27,6 +27,8 @@
 		"alias psmem10"
 		"alias wget"
 		"alias df"
+		"alias hs"
+		"alias bashreload"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -45,6 +47,8 @@
 		'alias psmem10='"'"'ps auxf | sort -nr -k 4 | head -10'"'"''
 		'alias wget='"'"'wget -c'"'"''
 		'alias df='"'"'df -H'"'"''
+		'alias hs='"'"'history | grep'"'"''
+		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
 	)
 
 	#for ((i=0;i<${#toGrep[@]};i++))  #this works but I prefer "for i in"
