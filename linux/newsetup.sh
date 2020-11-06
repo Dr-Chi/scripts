@@ -72,7 +72,7 @@
 	)
 	functions=(
 		#Make a directory then cd into it\n \
-		mkcd() { mkdir -p $1; cd $1 }
+		mkcd\(\) { mkdir -p $1; cd $1 }
 	)
 	
 	for i in $(echo ${!toGrepFunctions[@]});
