@@ -70,8 +70,9 @@
 	toGrepFunctions=(
 		"mkcd()"
 	)
+	# All functions need that ending semicolon before the last curly!
 	functions=(
-		'#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1 }'
+		'#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1; }'
 	)
 	
 	for i in $(echo ${!toGrepFunctions[@]});
