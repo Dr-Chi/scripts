@@ -52,7 +52,7 @@
 		# -c equal continue download
 		'alias wget='"'"'wget -c'"'"''
 		'alias df='"'"'df -H'"'"''
-		'alias hs='"'"'history | grep'"'"''
+		'alias hs='"'"'HISTTIMEFORMAT='"'"'%F_%T  '"'"' history |grep'"'"''
 		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
 	)
 
