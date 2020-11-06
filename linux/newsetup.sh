@@ -8,7 +8,7 @@
 # wget https://raw.githubusercontent.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh && rm newsetup.sh
 
 # Add aliases and functions to bashrc
-	echo -e '\n[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases' >> ~/.bashrc
+	grep -q "[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases" ~/.bashrc || echo -e '\n[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases' >> ~/.bashrc
 	grep -q "[[ -f ~/.bash_functions ]] && . ~/.bash_functions" ~/.bashrc || echo -e '\n[[ -f ~/.bash_functions ]] && . ~/.bash_functions' >> ~/.bashrc
 
 # Add to ~/.bash_aliases
@@ -71,7 +71,8 @@
 		"mkcd()"
 	)
 	functions=(
-		#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1 }
+		#Make a directory then cd into it\n \
+		mkcd() { mkdir -p $1; cd $1 }
 	)
 	
 	for i in $(echo ${!toGrepFunctions[@]});
