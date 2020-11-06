@@ -6,16 +6,18 @@
 #
 # One-liner to call this script from terminal:
 # wget https://raw.githubusercontent.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh && rm newsetup.sh
+#
+#
+# Notes:
+# Use the following to use a ' in arrays:
+# '"'"'
+# All queries with double pipes (||) are there to ensure duplicates aren't created, the arrays help with this search and for iteration
 
 # Add aliases and functions to bashrc
 	grep -q "[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases" ~/.bashrc || echo -e '\n[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases' >> ~/.bashrc
 	grep -q "[[ -f ~/.bash_functions ]] && . ~/.bash_functions" ~/.bashrc || echo -e '\n[[ -f ~/.bash_functions ]] && . ~/.bash_functions' >> ~/.bashrc
 
 # Add to ~/.bash_aliases
-	#Notes:
-	#Use the following to use a ' in arrays:
-	# '"'"'
-
 	toGrepAliases=(
 		"alias screenscale"
 		"alias runmobsf"
