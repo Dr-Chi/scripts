@@ -68,7 +68,7 @@
 	# '"'"'
 
 	toGrepFunctions=(
-		"blah"
+		"mkcd()"
 	)
 	functions=(
 		#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1 }
