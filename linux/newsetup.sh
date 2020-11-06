@@ -7,12 +7,16 @@
 # One-liner to call this script from terminal:
 # wget https://raw.githubusercontent.com/Dr-Chi/scripts/master/linux/newsetup.sh -O newsetup.sh && bash newsetup.sh && rm newsetup.sh
 
+# Add aliases and functions to bashrc
+	echo -e '\n[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases' >> ~/.bashrc
+	echo -e '\n[[ -f ~/.bash_functions ]] && . ~/.bash_functions' >> ~/.bashrc
+
 # Add to ~/.bash_aliases
 	#Notes:
 	#Use the following to use a ' in arrays:
 	# '"'"'
 
-	toGrep=(
+	toGrepAliases=(
 		"alias screenscale"
 		"alias runmobsf"
 		"alias editmobsf"
@@ -52,11 +56,25 @@
 		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
 	)
 
-	#for ((i=0;i<${#toGrep[@]};i++))  #this works but I prefer "for i in"
-	for i in $(echo ${!toGrep[@]});
+	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
+	for i in $(echo ${!toGrepAliases[@]});
 	do
-	    grep -q "${toGrep[$i]}" ~/.bash_aliases || echo ${aliases[$i]} >> ~/.bash_aliases;
+	    grep -q "${toGrepAliases[$i]}" ~/.bash_aliases || echo ${aliases[$i]} >> ~/.bash_aliases;
 	done
 
-# Make a directory then cd into it
-	mkcd() { mkdir -p $1; cd $1 }
+# Add to ~/.bash_functions
+	#Notes:
+	#Use the following to use a ' in arrays:
+	# '"'"'
+
+	toGrepFunctions=(
+		"blah"
+	)
+	functions=(
+		#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1 }
+	)
+	
+	for i in $(echo ${!toGrepFunctions[@]});
+	do
+	    grep -q "${toGrepFunctions[$i]}" ~/.bash_functions || echo -e ${functions[$i]} >> ~/.bash_functions;
+	done
