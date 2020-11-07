@@ -66,7 +66,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		# -c equal continue download
 		'alias wget='"'"'wget -c'"'"''
 		'alias df='"'"'df -H'"'"''
-		'alias hs='"'"'HISTTIMEFORMAT='"'"'%F_%T  '"'"' history |grep'"'"''
+		'alias hs='"'"'HISTTIMEFORMAT="%F_%T  " history |grep'"'"''
 		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
 		# get internet speed
 		'alias speedtest='"'"'wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'"'"''
