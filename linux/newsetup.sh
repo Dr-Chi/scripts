@@ -94,10 +94,12 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 # Add to ~/.bash_functions
 	toGrepFunctions=(
 		"mkcd()"
+		"copyfile()"
 	)
 	# All functions need that ending semicolon before the last curly!
 	functions=(
 		'#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1; }'
+		'#Copy a file to the clipboard from the command line\ncopyfile() { cat $1 | xclip -selection clipboard; }'
 	)
 	
 	for i in $(echo ${!toGrepFunctions[@]});
