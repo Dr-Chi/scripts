@@ -39,6 +39,14 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias df"
 		"alias hs"
 		"alias bashreload"
+		"alias speedtest"
+		"alias extip"
+		"alias cpwd"
+		"alias recall"
+		"alias ff"
+		"alias fd"
+		"alias path"
+		"alias now"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -60,6 +68,21 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias df='"'"'df -H'"'"''
 		'alias hs='"'"'HISTTIMEFORMAT='"'"'%F_%T  '"'"' history |grep'"'"''
 		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
+		# get internet speed
+		'alias speedtest='"'"'wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'"'"''
+		# get external ip
+		'alias extip='"'"'curl icanhazip.com'"'"''
+		# copy the current working directory to the clipboard
+		'alias cpwd='"'"'pwd | xclip -selection clipboard'"'"''
+		# go to the last directory you were in
+		'alias recall='"'"'cd $OLDPWD'"'"''
+		# quickly find files and directory
+		'alias ff='"'"'find . -type f -name'"'"''
+		'alias fd='"'"'find . -type d -name'"'"''
+		# print the path with each directory separated by a newline
+		'alias path='"'"'echo -e ${PATH//:/\\n}'"'"''
+		# print the current time
+		'alias now='"'"'date +%T'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
