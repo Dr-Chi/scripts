@@ -61,7 +61,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias mv='"'"'mv -i'"'"''
 		'alias cp='"'"'cp -i'"'"''
 		'alias ln='"'"'ln -i'"'"''
-		'alias reboot='"'"'shurdown -r now'"'"''
+		'alias reboot='"'"'shutdown -r now'"'"''
 		'alias meminfo='"'"'free -m -l -t'"'"''
 		'alias psmem10='"'"'ps auxf | sort -nr -k 4 | head -10'"'"''
 		# -c equal continue download
