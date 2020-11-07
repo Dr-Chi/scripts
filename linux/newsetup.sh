@@ -47,6 +47,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias fd"
 		"alias path"
 		"alias now"
+		"alias psg"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -83,6 +84,8 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias path='"'"'echo -e ${PATH//:/\\n}'"'"''
 		# print the current time
 		'alias now='"'"'date +%T'"'"''
+		# psg <process> to show process list grepping for that process
+		'alias psg='"'"'ps aux | grep -v grep | grep -i -e VSZ -e'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
