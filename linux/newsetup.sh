@@ -95,11 +95,13 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 	toGrepFunctions=(
 		"mkcd()"
 		"copyfile()"
+		"editbash()"
 	)
 	# All functions need that ending semicolon before the last curly!
 	functions=(
 		'#Make a directory then cd into it\nmkcd() { mkdir -p $1; cd $1; }'
 		'#Copy a file to the clipboard from the command line\ncopyfile() { cat $1 | xclip -selection clipboard; }'
+		'#Edits one of the bash files, use with editbash a or f for aliases or functions\neditbash() { [[ "$1" == "a" ]] && nano ~/.bash_aliases || { [[ "$1" == "f" ]] && nano ~/.bash_functions || nano ~/.bashrc; }; }'
 	)
 	
 	for i in $(echo ${!toGrepFunctions[@]});
