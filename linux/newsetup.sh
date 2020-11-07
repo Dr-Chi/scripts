@@ -12,6 +12,10 @@
 # Use the following to use a ' in arrays:
 # '"'"'
 # All queries with double pipes (||) are there to ensure duplicates aren't created, the arrays help with this search and for iteration
+# Why not just replace the whole bashrc with a custom file?  Various distros often throw custom stuff in the bashrc, this is a less destructive way to customize it
+
+# Change the history to not include duplicate commands
+sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 
 # Add aliases and functions to bashrc
 	grep -q "[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases" ~/.bashrc || echo -e '\n[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases' >> ~/.bashrc
@@ -65,10 +69,6 @@
 	done
 
 # Add to ~/.bash_functions
-	#Notes:
-	#Use the following to use a ' in arrays:
-	# '"'"'
-
 	toGrepFunctions=(
 		"mkcd()"
 	)
