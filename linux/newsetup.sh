@@ -49,7 +49,8 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias now"
 		"alias psg"
 		"alias top"
-		"alias installed"
+		"alias installed2"
+		#"alias installed"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -89,7 +90,8 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		# psg <process> to show process list grepping for that process
 		'alias psg='"'"'ps aux | grep -v grep | grep -i -e VSZ -e'"'"''
 		'alias top='"'"'htop'"'"''
-		'alias installed='"'"'(zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | grep -v aptdaemon | grep -v upgrade | egrep -B1 '"'"'^Commandline:'"'"' | egrep '"'"'^(Start-Date:|Commandline:)'"'"' | egrep -B1 '"'"'^Commandline:'"'"''
+		'alias installed2='"'"''"("'zcat $'"("'ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | grep -v aptdaemon | grep -v upgrade | egrep -B1 '"'"'^Commandline:'"'"' | egrep '"'"'^'"("'Start-Date:|Commandline:)'"'"' | egrep -B1 '"'"'^Commandline:'"'"''
+		#'alias installed='"'"'(zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | grep -v aptdaemon | grep -v upgrade | egrep -B1 '"'"'^Commandline:'"'"' | egrep '"'"'^(Start-Date:|Commandline:)'"'"' | egrep -B1 '"'"'^Commandline:'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
