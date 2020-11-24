@@ -1,0 +1,27 @@
+#Aliases for chronos shell (chroshell):
+#Make sure .bashrc has this line in it;
+#
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+#
+alias backupall='sudo edit-chroot -b *'
+alias backuplinux='sudo edit-chroot -b xenial'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+alias grep='grep --colour=auto'
+alias listlinux='ls /mnt/stateful_partition/crouton/chroots/'
+alias ls='ls --color=auto'
+alias runlinux='sudo startxfce4'
+alias sudo='sudo LD_LIBRARY_PATH="${LD_LIBRARY_PATH}"'
+
+#Add "cat ~/motd" at the end of the .bashrc file
+#Contents of ~/motd file:
+
+--HELLO-------------------------------------------------
+RunLinux  : sudo startxfce4
+ListLinux : ls /mnt/stateful_partition/crouton/chroots/
+Backup    : sudo edit-chroot -b chrootname
+Restore   : sudo edit-chroot -r chrootname
+Delete    : sudo delete-chroot evilchroot
+--------------------------------------------------------
