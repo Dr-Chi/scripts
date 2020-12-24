@@ -39,7 +39,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias df"
 		"alias hs"
 		"alias bashreload"
-		"alias speedtest"
+		"alias speedtestold"
 		"alias extip"
 		"alias cpwd"
 		"alias recall"
@@ -73,7 +73,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias hs='"'"'HISTTIMEFORMAT="%F_%T  " history |grep'"'"''
 		'alias bashreload='"'"'source ~/.bashrc && echo Bash config reloaded'"'"''
 		# get internet speed
-		'alias speedtest='"'"'wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'"'"''
+		'alias speedtestold='"'"'wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'"'"''
 		# get external ip
 		'alias extip='"'"'curl icanhazip.com'"'"''
 		# copy the current working directory to the clipboard
