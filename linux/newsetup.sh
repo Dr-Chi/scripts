@@ -51,6 +51,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias top"
 		"alias installed"
 		"alias updatesystem"
+		"alias sysinfo"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -92,7 +93,10 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias top='"'"'htop'"'"''
 		# List all user installed programs
 		'alias installed='"'"'(zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | grep -v aptdaemon | grep -v upgrade | egrep -B1 "^Commandline:" | egrep "^(Start-Date:|Commandline:)" | egrep -B1 "^Commandline:"'"'"''
+		# Update and upgrade system all-in-one
 		'alias updatesystem='"'"'sudo apt update && sudo apt upgrade && sudo apt dist-upgrade'"'"''
+		# Shows system information
+		'alias sysinfo='"'"'sudo lshw'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
