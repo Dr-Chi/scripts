@@ -94,7 +94,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		# List all user installed programs
 		'alias installed='"'"'(zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | grep -v aptdaemon | grep -v upgrade | egrep -B1 "^Commandline:" | egrep "^(Start-Date:|Commandline:)" | egrep -B1 "^Commandline:"'"'"''
 		# Update and upgrade system all-in-one
-		'alias updatesystem='"'"'sudo apt update && sudo apt upgrade && sudo apt dist-upgrade'"'"''
+		'alias updatesystem='"'"'sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'"'"''
 		# Shows system information
 		'alias sysinfo='"'"'sudo lshw'"'"''
 	)
