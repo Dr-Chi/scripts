@@ -122,3 +122,9 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 	do
 	    grep -q "${toGrepFunctions[$i]}" ~/.bash_functions || echo -e ${functions[$i]} >> ~/.bash_functions;
 	done
+
+# Install some initial stuff I like
+	# required for adding new repositories
+	sudo apt install software-properties-common
+	# install Howdy (Win Hello-like face recog)
+	sudo add-apt-repository ppa:boltgolt/howdy && sudo apt update && sudo apt install howdy
