@@ -126,5 +126,9 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 # Install some initial stuff I like
 	# required for adding new repositories
 	sudo apt install software-properties-common
+	# install timeshift for backups
+	sudo apt install timeshift
 	# install Howdy (Win Hello-like face recog)
-	sudo add-apt-repository ppa:boltgolt/howdy && sudo apt update && sudo apt install howdy
+	#sudo add-apt-repository ppa:boltgolt/howdy && sudo apt update && sudo apt install howdy
+
+# Things to maybe add: Ukuu kernel updater, Tilix?, sublime or atom, stacer, krita
