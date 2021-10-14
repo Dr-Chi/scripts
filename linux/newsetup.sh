@@ -52,7 +52,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias installed"
 		"alias updatesystem"
 		"alias sysinfo"
-		"alias battmax"
+		#"alias battmax"
 	)
 	aliases=(
 		'alias screenscale='"'"'xrandr --output eDP-1 --scale 1.4x1.4 --panning 3584x2016+0+0'"'"''
@@ -98,8 +98,8 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias updatesystem='"'"'sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y'"'"''
 		# Shows system information
 		'alias sysinfo='"'"'sudo lshw'"'"''
-		# Shows max battery charge total
-		'alias battmax='"'"'VAR1='"'"'cat /sys/class/power_supply/BAT0/charge_full'"'"' && VAR2='"'"'cat /sys/class/power_supply/BAT0/charge_full_design'"'"' && echo "scale=2; $VAR1 / $VAR2 *100" | bc -l'"'"''
+		# Shows max battery charge total ----can't get the single quotes to work right.
+		#'alias battmax='"'"'VAR1='"'"'cat /sys/class/power_supply/BAT0/charge_full'"'"' && VAR2='"'"'cat /sys/class/power_supply/BAT0/charge_full_design'"'"' && echo "scale=2; $VAR1 / $VAR2 *100" | bc -l'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
