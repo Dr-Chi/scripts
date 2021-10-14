@@ -99,7 +99,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		# Shows system information
 		'alias sysinfo='"'"'sudo lshw'"'"''
 		# Shows max battery charge total
-		'alias battmax='"'"'VAR1='"'"'cat /sys/class/power_supply/BAT0/charge_full'"'"' && VAR2='"'"'cat /sys/class/power_supply/BAT0/charge_full_design'"'"' && echo "scale=2; $VAR1 / $VAR2 *100" | bc -l'"'"''
+		'alias battmax='"'"'VAR1="cat /sys/class/power_supply/BAT0/charge_full" && VAR2="cat /sys/class/power_supply/BAT0/charge_full_design" && echo "scale=2; $VAR1 / $VAR2 *100" | bc -l'"'"''
 	)
 
 	#for ((i=0;i<${#toGrepAliases[@]};i++))  #this works but I prefer "for i in"
