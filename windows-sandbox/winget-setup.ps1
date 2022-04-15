@@ -9,7 +9,8 @@ Param(
   [Parameter(Position = 1, HelpMessage = 'The script to run in the Sandbox.')]
   [ScriptBlock] $Script,
   [Parameter(HelpMessage = 'The folder to map in the Sandbox.')]
-  [String] $MapFolder = $pwd,
+  [String] $MapFolder = $pwd,# Will mount the current path in the sandbox as read-write
+  [String] $MapHomeFolder = $home,# Will mount the profile path as read-only
   [switch] $SkipManifestValidation,
   [switch] $Prerelease,
   [switch] $EnableExperimentalFeatures
@@ -21,6 +22,12 @@ $mapFolder = (Resolve-Path -Path $MapFolder).Path
 
 if (-Not (Test-Path -Path $mapFolder -PathType Container)) {
   Write-Error -Category InvalidArgument -Message 'The provided MapFolder is not a folder.'
+}
+
+$mapHomeFolder = (Resolve-Path -Path $MapHomeFolder).Path
+
+if (-Not (Test-Path -Path $mapHomeFolder -PathType Container)) {
+  Write-Error -Category InvalidArgument -Message 'The provided MapHomeFolder is not a folder.'
 }
 
 # Validate manifest file
@@ -288,6 +295,8 @@ $bootstrapPs1Content | Out-File (Join-Path -Path $tempFolder -ChildPath $bootstr
 
 $bootstrapPs1InSandbox = Join-Path -Path $desktopInSandbox -ChildPath (Join-Path -Path $tempFolderName -ChildPath $bootstrapPs1FileName)
 $mapFolderInSandbox = Join-Path -Path $desktopInSandbox -ChildPath (Split-Path -Path $mapFolder -Leaf)
+#may not need the following
+#$mapHomeFolderInSandbox = Join-Path -Path $desktopInSandbox -ChildPath (Split-Path -Path $mapHomeFolder -Leaf)
 
 $sandboxTestWsbContent = @"
 <Configuration>
@@ -298,6 +307,10 @@ $sandboxTestWsbContent = @"
     </MappedFolder>
     <MappedFolder>
       <HostFolder>$mapFolder</HostFolder>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>$mapHomeFolder</HostFolder>
+      <ReadOnly>true</ReadOnly>
     </MappedFolder>
   </MappedFolders>
   <LogonCommand>
@@ -315,6 +328,7 @@ Write-Host @"
     - Mounting the following directories:
       - $tempFolder as read-only
       - $mapFolder as read-and-write
+      - $mapHomeFolder as read-only
     - Installing WinGet
     - Configuring Winget
 "@
