@@ -4,6 +4,7 @@
 # https://github.com/Dr-Chi/scripts/master/linux/kali_persistence.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
+# Based off instructions from https://www.kali.org/docs/usb/usb-persistence/
 #
 # One-liner to call this script from kali-live:
 # wget http://git.io/kalipersist -O kali_persistence.sh && bash kali_persistence.sh
@@ -36,16 +37,7 @@ echo -e "\033[0;33mWhat is the path to your USB device? Remember: sda is usually
 read -p "USB path: " -e -i /dev/sdb USB
 set -x #echo on
 # The fdisk options are; n for new part, enter 4 times, w to write the changes
-fdisk $USB <<EOI
-n
-
-
-
-
-Y
-w
-EOI
-
+fdisk $USB <<< $(printf "n\np\n\n\n\nw")
 fdisk -l    #is it created?  Is is /dev/sdb3?
 set +x #echo off
 echo -e "\033[0;33mIs the new partition /dev/sdb3?"
