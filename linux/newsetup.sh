@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+# https://bit.ly/3toqlME
 # https://github.com/Dr-Chi/scripts/master/linux/newsetup.sh
 #
 # Copyright (c) 2019 DrChi. Released under the MIT License.
