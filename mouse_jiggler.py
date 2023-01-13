@@ -3,9 +3,6 @@ import time
 from datetime import datetime
 from pynput import mouse, keyboard
 
-# Disable cursor's screen corner failsafe
-mouse.Listener.FAILSAFE = False
-
 # Print a message to indicate that the script is running
 print("...")
 
