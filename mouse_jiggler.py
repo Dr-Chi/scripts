@@ -66,7 +66,7 @@ with mouse.Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as mo
                 # check if 30 seconds has passed since the last input event
                 if time.time() - last_input_time > 30:
                     # left-click the mouse
-                    mouse.Controller().click(Button.left,count=1)
+                    mouse.Controller().click(mouse.Button.left)
 
                 # Check the current time
                 now = datetime.now()
