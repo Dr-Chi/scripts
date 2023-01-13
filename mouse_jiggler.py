@@ -9,6 +9,7 @@ print("...")
 # generate random ending time
 end_hour = random.randint(15,17) # generate random hour between 15 and 17
 end_min = random.randint(0,59) # generate random minute between 0 and 59
+print(end_hour,end_min) # For diagnostics
 
 # Initialize a variable to store the time of the last input event
 last_input_time = time.time()
@@ -60,7 +61,7 @@ with mouse.Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as mo
                 #get the current time
                 now = datetime.now()
                 # check if the current hour is between 8 and 15 or if the current hour and minute is greater than or equal to the random hour and minute
-                if not (8 <= now.hour < 15) or (now.hour, now.minute) >= (end_hour, end_min):
+                if not (8 <= now.hour < 17) or (now.hour, now.minute) >= (end_hour, end_min):
                     print("End ",datetime.now().strftime("%H:%M:%S"))
                     break
         except KeyboardInterrupt:
