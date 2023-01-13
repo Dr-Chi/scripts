@@ -9,11 +9,37 @@ mouse.Listener.FAILSAFE = False
 # Print a message to indicate that the script is running
 print("...")
 
+# Initialize a variable to store the time of the last input event
+last_input_time = time.time()
+
+# Define a function to check for input events
+def on_move(x, y):
+    global last_input_time
+    last_input_time = time.time()
+
+# Define a function to check for input events
+def on_click(x, y, button, pressed):
+    global last_input_time
+    last_input_time = time.time()
+
+# Define a function to check for input events
+def on_scroll(x, y, dx, dy):
+    global last_input_time
+    last_input_time = time.time()
+
+# Define a function to check for input events
+def on_press(key):
+    global last_input_time
+    last_input_time = time.time()
+
+# Define a function to check for input events
+def on_release(key):
+    global last_input_time
+    last_input_time = time.time()
+
 # Start listening to input events
-#store the last input event time in the mouse listener
-with mouse.Listener(on_move=lambda x, y: time.time(),on_click=lambda x, y, button, pressed: time.time(),on_scroll=lambda x, y, dx, dy: time.time()) as mouse_listener:
-    #store the last input event time in the keyboard listener
-    with keyboard.Listener(on_press=lambda key: time.time(),on_release=lambda key: time.time()) as keyboard_listener:
+with mouse.Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as mouse_listener:
+    with keyboard.Listener(on_press=on_press,on_release=on_release) as keyboard_listener:
         try:
             #initialize the x and y position of the cursor
             x_prev, y_prev = mouse.Controller().position
@@ -27,7 +53,7 @@ with mouse.Listener(on_move=lambda x, y: time.time(),on_click=lambda x, y, butto
                 #generate a random sleep time between 30 and 240 seconds
                 time.sleep(random.randint(30,240))
                 # check if 30 seconds has passed since the last input event
-                if time.time() - mouse_listener.last_input_time > 30:
+                if time.time() - last_input_time > 30:
                     # left-click the mouse
                     mouse.Controller().click(mouse.Button.left)
                 #get the current time
