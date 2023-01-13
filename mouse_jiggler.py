@@ -3,6 +3,9 @@ from datetime import datetime
 from time import sleep
 import pyautogui
 
+# Disable pyautogui's screen corner failsafe; otherwise we get an error if the cursor ever happens to reach a corner
+pyautogui.FAILSAFE = False
+
 # Print a message to indicate that the script is running
 print("...")
 
@@ -36,6 +39,9 @@ try:
         # Check the current time
         now = datetime.now()
         
+        # Print out the mouse position; for diagnostics
+        #print(pyautogui.position())
+
         # check if the current hour is between 8 and 15
         if not (8 <= now.hour < 15):
             # generate random minute between 0 and 59
