@@ -2,11 +2,6 @@ import random
 import time
 from datetime import datetime
 from pynput import mouse, keyboard
-from time import sleep
-import pyautogui
-
-# Disable pyautogui's screen corner failsafe; otherwise we get an error if the cursor ever happens to reach a corner
-pyautogui.FAILSAFE = False
 
 # Print a message to indicate that the script is running
 print("...")
@@ -48,9 +43,7 @@ with mouse.Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as mo
         try:
             while True:
                 # Get the current position of the cursor
-                xpos = pyautogui.position()[0]
-                ypos = pyautogui.position()[1]
-                pyautogui.moveTo(xpos,ypos)
+                xpos, ypos = mouse.Controller().position
 
                 # Calculate the new position for the cursor, based on the direction it's moving
                 new_pos = xpos - 1
@@ -61,19 +54,19 @@ with mouse.Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as mo
                 forward = not forward
 
                 # Move the cursor to the new position
-                pyautogui.moveTo(new_pos, ypos)
+                mouse.Controller().position = (new_pos, ypos)
 
                 # Generate a random sleep time between 30 and 240 seconds
-                #sleep_time = 3 # For testing
+                #sleep_time = 2 # For testing
                 sleep_time = random.randint(30,240)
 
                 # Wait for the random sleep time
-                sleep(sleep_time)
+                time.sleep(sleep_time)
 
                 # check if 30 seconds has passed since the last input event
                 if time.time() - last_input_time > 30:
                     # left-click the mouse
-                    pyautogui.click(button='left')
+                    mouse.Controller().click(Button.left,count=1)
 
                 # Check the current time
                 now = datetime.now()
