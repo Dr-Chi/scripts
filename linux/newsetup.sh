@@ -54,6 +54,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		"alias updatesystem"
 		"alias sysinfo"
 		"alias motd"
+  		"clear"
 		#"alias battmax"
 	)
 	aliases=(
@@ -102,6 +103,7 @@ sed -i 's/.*HISTCONTROL.*/HISTCONTROL=ignoreboth:erasedups/' .bashrc
 		'alias sysinfo='"'"'sudo lshw'"'"''
 		# Re-run the MOTD that Windows WSL shows
 		'alias motd='"'"'run-parts /etc/update-motd.d/'"'"''
+  		'alias clear='"'"'timeout 1s cmatrix -b -c || clear'"'"'
 		# Shows max battery charge total ----can't get the single quotes to work right.
 		#'alias battmax='"'"'VAR1='"'"'cat /sys/class/power_supply/BAT0/charge_full'"'"' && VAR2='"'"'cat /sys/class/power_supply/BAT0/charge_full_design'"'"' && echo "scale=2; $VAR1 / $VAR2 *100" | bc -l'"'"''
 	)
